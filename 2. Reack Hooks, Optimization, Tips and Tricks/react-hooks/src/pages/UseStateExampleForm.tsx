@@ -4,7 +4,7 @@ const UseStateExampleForm = () => {
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
 
-  //* Handle Multiple State Using Object
+  //* 2.4 Handle Multiple State Using Object
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -15,6 +15,12 @@ const UseStateExampleForm = () => {
     console.log(user);
   };
 
+  // IMPORTANT: 2.5 Refactoring Change Event Functions
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(user);
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
   return (
     <form className="flex gap-2" onSubmit={handleSubmit}>
       <input
@@ -22,14 +28,14 @@ const UseStateExampleForm = () => {
         name="name"
         id="name"
         className="border-2 border-green-500"
-        onChange={(e) => setUser({ ...user, name: e.target.value })}
+        onChange={handleChange}
       />
       <input
         type="text"
         name="email"
         id="email"
         className="border-2 border-green-500"
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
+        onChange={handleChange}
       />
       <button type="submit" className="btn btn-accent">
         Submit
