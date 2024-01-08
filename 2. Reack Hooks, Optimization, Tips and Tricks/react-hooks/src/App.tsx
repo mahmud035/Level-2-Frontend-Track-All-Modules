@@ -7,7 +7,9 @@
 // import UseReducerExampleForm from './pages/UseReducerExampleForm';
 
 // import UseEffectExample from './pages/UseEffectExample';
-import UseEffectCleanupExample from './pages/UseEffectCleanupExample';
+// import UseEffectCleanupExample from './pages/UseEffectCleanupExample';
+// import UseEffectFetchCleanupExample from './pages/UseEffectFetchCleanupExample';
+import UseEffectUseObjectAsADependency from './pages/UseEffectUseObjectAsADependency';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -22,7 +24,9 @@ function App() {
       {/* <UseReducerExampleForm /> */}
 
       {/* <UseEffectExample /> */}
-      <UseEffectCleanupExample />
+      {/* <UseEffectCleanupExample /> */}
+      {/* <UseEffectFetchCleanupExample /> */}
+      <UseEffectUseObjectAsADependency />
     </div>
   );
 }

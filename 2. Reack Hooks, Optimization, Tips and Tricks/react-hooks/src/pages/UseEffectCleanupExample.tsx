@@ -17,8 +17,6 @@ const UseEffectCleanupExample = () => {
   );
 };
 
-export default UseEffectCleanupExample;
-
 //* Counter Component
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -41,3 +39,5 @@ const Counter = () => {
     </h1>
   );
 };
+
+export default UseEffectCleanupExample;
