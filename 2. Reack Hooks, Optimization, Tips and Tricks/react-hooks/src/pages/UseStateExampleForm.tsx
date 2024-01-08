@@ -4,7 +4,7 @@ const UseStateExampleForm = () => {
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
 
-  //* 2.4 Handle Multiple State Using Object
+  //* 2.4 Handle Multiple State Using Plain Object
   const [user, setUser] = useState({
     name: '',
     email: '',
