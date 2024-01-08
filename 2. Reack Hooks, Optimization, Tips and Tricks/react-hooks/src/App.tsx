@@ -3,7 +3,9 @@
 // import StateLiftingExample from './pages/StateLiftingExample';
 // import UseStateExampleForm from './pages/UseStateExampleForm';
 
-import UseReducerExample from './pages/UseReducerExample';
+import UseReducerExampleForm from './pages/UseReducerExampleForm';
+
+// import UseReducerExample from './pages/UseReducerExample';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -14,7 +16,8 @@ function App() {
       {/* <StateLiftingExample counter={counter} setCounter={setCounter} /> */}
       {/* <UseStateExampleForm /> */}
 
-      <UseReducerExample />
+      {/* <UseReducerExample /> */}
+      <UseReducerExampleForm />
     </div>
   );
 }

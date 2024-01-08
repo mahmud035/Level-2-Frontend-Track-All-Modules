@@ -1,14 +1,26 @@
 import { useReducer } from 'react';
 
+type TAction = {
+  type: string;
+  payload?: number;
+};
+
 const initialState = {
   count: 0,
 };
 
-const reducer = (currentState, action) => {
+const reducer = (currentState: typeof initialState, action: TAction) => {
+  // console.log('Current State =>', currentState);
+  // console.log('Action =>', action);
+
   switch (action.type) {
     case 'INCREMENT':
       return {
         count: currentState.count + 1,
+      };
+    case 'DYNAMIC_INCREMENT':
+      return {
+        count: currentState.count + action.payload!,
       };
     case 'DECREMENT':
       return {
@@ -26,6 +38,10 @@ const UseReducerExample = () => {
     dispatch({ type: 'INCREMENT' });
   };
 
+  const handleDynamicIncrement = () => {
+    dispatch({ type: 'DYNAMIC_INCREMENT', payload: 3 });
+  };
+
   const handleDecrement = () => {
     dispatch({ type: 'DECREMENT' });
   };
@@ -39,6 +55,9 @@ const UseReducerExample = () => {
 
       <button className="btn btn-success" onClick={handleIncrement}>
         Increment
+      </button>
+      <button className="btn btn-info" onClick={handleDynamicIncrement}>
+        Increment by 3 (Payload)
       </button>
       <button className="btn btn-accent" onClick={handleDecrement}>
         Decrement
