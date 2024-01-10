@@ -1,5 +1,4 @@
 // NOTE: Presentational Component
-
 const User = ({ user }) => {
   const {
     picture: { large },

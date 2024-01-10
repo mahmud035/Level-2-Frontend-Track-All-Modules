@@ -5,7 +5,8 @@ const useUsersData = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [data, setData] = useState([]);
-  const controller = new AbortController();
+
+  const controller = new AbortController(); // for useEffect clean up function
   const signal = controller.signal;
 
   const url = 'https://randomuser.me/api/?results=15';
