@@ -16,7 +16,9 @@
 // import UseRefWithForwardRef from './pages/UseRefWithForwardRef';
 
 // import ContextAPIExample from './pages/ContextAPIExample';
-import { MenuItem, MenuList } from './components/Menu';
+// import { MenuItem, MenuList } from './components/Menu';
+
+import UsersContainer from './components/UsersContainer';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -40,9 +42,12 @@ function App() {
       {/* <UseRefWithForwardRef /> */}
 
       {/* <ContextAPIExample /> */}
-      <MenuList>
+      {/* <MenuList>
         <MenuItem />
-      </MenuList>
+      </MenuList> */}
+
+      {/* Pattern */}
+      <UsersContainer />
     </div>
   );
 }
