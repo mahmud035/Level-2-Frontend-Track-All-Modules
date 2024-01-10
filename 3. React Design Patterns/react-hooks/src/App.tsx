@@ -11,7 +11,8 @@
 // import UseEffectFetchCleanupExample from './pages/UseEffectFetchCleanupExample';
 // import UseEffectUseObjectAsADependency from './pages/UseEffectUseObjectAsADependency';
 
-import UseRefExample from './pages/UseRefExample';
+// import UseRefExample from './pages/UseRefExample';
+import UseRefReferenceOfHtmlTag from './pages/UseRefReferenceOfHtmlTag';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -30,7 +31,8 @@ function App() {
       {/* <UseEffectFetchCleanupExample /> */}
       {/* <UseEffectUseObjectAsADependency /> */}
 
-      <UseRefExample />
+      {/* <UseRefExample /> */}
+      <UseRefReferenceOfHtmlTag />
     </div>
   );
 }

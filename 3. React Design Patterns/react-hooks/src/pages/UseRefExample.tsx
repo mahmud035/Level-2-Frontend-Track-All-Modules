@@ -14,7 +14,7 @@ const UseRefExample = () => {
 
   return (
     <div>
-      <h1>useRef</h1>
+      <h1 className="text-xl font-semibold">useRef</h1>
       <button
         onClick={() => increment()}
         className="text-xl font-semibold btn btn-primary"
