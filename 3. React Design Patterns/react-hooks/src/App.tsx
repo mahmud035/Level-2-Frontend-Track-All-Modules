@@ -15,7 +15,8 @@
 // import UseRefReferenceOfHtmlTag from './pages/UseRefReferenceOfHtmlTag';
 // import UseRefWithForwardRef from './pages/UseRefWithForwardRef';
 
-import ContextAPIExample from './pages/ContextAPIExample';
+// import ContextAPIExample from './pages/ContextAPIExample';
+import { MenuItem, MenuList } from './components/Menu';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -38,7 +39,10 @@ function App() {
       {/* <UseRefReferenceOfHtmlTag /> */}
       {/* <UseRefWithForwardRef /> */}
 
-      <ContextAPIExample />
+      {/* <ContextAPIExample /> */}
+      <MenuList>
+        <MenuItem />
+      </MenuList>
     </div>
   );
 }
