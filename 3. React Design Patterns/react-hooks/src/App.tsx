@@ -12,7 +12,8 @@
 // import UseEffectUseObjectAsADependency from './pages/UseEffectUseObjectAsADependency';
 
 // import UseRefExample from './pages/UseRefExample';
-import UseRefReferenceOfHtmlTag from './pages/UseRefReferenceOfHtmlTag';
+// import UseRefReferenceOfHtmlTag from './pages/UseRefReferenceOfHtmlTag';
+import UseRefWithForwardRef from './pages/UseRefWithForwardRef';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -32,7 +33,8 @@ function App() {
       {/* <UseEffectUseObjectAsADependency /> */}
 
       {/* <UseRefExample /> */}
-      <UseRefReferenceOfHtmlTag />
+      {/* <UseRefReferenceOfHtmlTag /> */}
+      <UseRefWithForwardRef />
     </div>
   );
 }
