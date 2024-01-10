@@ -1,16 +1,8 @@
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeProvider';
+import { TThemeContext, ThemeContext } from '../contexts/ThemeProvider';
 
 const ContextAPIExample = () => {
-  const themeContext = useContext(ThemeContext);
-
-  // check if themeContext is defined
-  if (!themeContext) {
-    return null;
-  }
-
-  // get the values provided by ThemeContext
-  const { dark, setDark } = themeContext;
+  const { dark, setDark } = useContext(ThemeContext) as TThemeContext;
 
   return (
     <div
