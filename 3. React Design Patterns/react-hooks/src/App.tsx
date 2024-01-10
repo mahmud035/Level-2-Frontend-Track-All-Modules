@@ -13,7 +13,9 @@
 
 // import UseRefExample from './pages/UseRefExample';
 // import UseRefReferenceOfHtmlTag from './pages/UseRefReferenceOfHtmlTag';
-import UseRefWithForwardRef from './pages/UseRefWithForwardRef';
+// import UseRefWithForwardRef from './pages/UseRefWithForwardRef';
+
+import ContextAPIExample from './pages/ContextAPIExample';
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -34,7 +36,9 @@ function App() {
 
       {/* <UseRefExample /> */}
       {/* <UseRefReferenceOfHtmlTag /> */}
-      <UseRefWithForwardRef />
+      {/* <UseRefWithForwardRef /> */}
+
+      <ContextAPIExample />
     </div>
   );
 }
