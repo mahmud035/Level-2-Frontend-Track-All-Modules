@@ -16,6 +16,8 @@ const Home = () => {
       <Header />
 
       <div className="flex items-center justify-center w-full h-screen gap-4">
+        {/* Button Component */}
+
         {/* 
         <Button variant="solid">Solid Button</Button>
         <Button variant="outline">Outline Button</Button>
@@ -26,7 +28,11 @@ const Home = () => {
         {/* Modal */}
         <Button onClick={() => setModal((prev) => !prev)}>Open Modal</Button>
         <Modal isOpen={modal} onClose={handleModalClose}>
-          <h1>This is a Modal</h1>
+          <Modal.Header>
+            <h3>This is Modal Title</h3>
+            <Modal.CloseButton></Modal.CloseButton>
+          </Modal.Header>
+          <p>This is a content</p>
         </Modal>
       </div>
     </div>
