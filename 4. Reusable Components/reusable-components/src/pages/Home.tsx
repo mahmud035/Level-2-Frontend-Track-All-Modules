@@ -23,6 +23,7 @@ const Home = () => {
         <Button>Default Button</Button>
        */}
 
+        {/* Modal */}
         <Button onClick={() => setModal((prev) => !prev)}>Open Modal</Button>
         <Modal isOpen={modal} onClose={handleModalClose}>
           <h1>This is a Modal</h1>
