@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Button from '../components/ui/Button';
 import Modal from '../components/ui/Modal';
 import Header from '../shared/Header';
@@ -8,6 +8,11 @@ const Home = () => {
 
   const handleModalClose = () => {
     setModal((prev) => !prev);
+  };
+
+  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Clicked');
   };
 
   return (
@@ -30,8 +35,12 @@ const Home = () => {
         <Modal isOpen={modal} onClose={handleModalClose}>
           <Modal.Header>
             <h3>This is Modal Title</h3>
-            <Modal.CloseButton></Modal.CloseButton>
+            <Modal.CloseButton />
           </Modal.Header>
+          <form onSubmit={handleSubmit}>
+            <input type="text" />
+            <button type="submit">Submit</button>
+          </form>
           <p>This is a content</p>
         </Modal>
       </div>
