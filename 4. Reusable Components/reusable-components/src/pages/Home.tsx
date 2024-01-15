@@ -1,3 +1,4 @@
+import Button from '../components/ui/Button';
 import Header from '../shared/Header';
 
 const Home = () => {
@@ -7,8 +8,7 @@ const Home = () => {
       <Header />
 
       <div className="flex items-center justify-center w-full h-screen gap-4">
-        <button className="btn btn-primary">This is a button</button>
-        <button className="btn btn-danger">This is a button</button>
+        <Button outline={true} />
       </div>
     </div>
   );
