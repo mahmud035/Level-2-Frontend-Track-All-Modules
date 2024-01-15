@@ -8,9 +8,10 @@ const Home = () => {
       <Header />
 
       <div className="flex items-center justify-center w-full h-screen gap-4">
-        <Button variant="solid">Click</Button>
-        <Button variant="outline">Click</Button>
-        <Button variant="ghost">Click</Button>
+        <Button variant="solid">Solid Button</Button>
+        <Button variant="outline">Outline Button</Button>
+        <Button variant="ghost">Ghost Button</Button>
+        <Button>Default Button</Button>
       </div>
     </div>
   );
