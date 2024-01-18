@@ -47,8 +47,8 @@ const NormalForm = () => {
             Email
           </label>
           <input
-            type="text"
-            id="name"
+            type="email"
+            id="email"
             className="w-full border border-gray-300 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             {...register('email')}
           />
@@ -59,8 +59,8 @@ const NormalForm = () => {
             Password
           </label>
           <input
-            type="text"
-            id="name"
+            type="password"
+            id="password"
             className="w-full border border-gray-300 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             {...register('password')}
           />
