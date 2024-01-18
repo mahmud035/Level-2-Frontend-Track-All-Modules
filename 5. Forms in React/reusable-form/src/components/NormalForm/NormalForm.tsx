@@ -1,77 +1,96 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import cn from '../../utils/cn';
 import Button from '../ui/Button';
 import { TSchema, schema } from './validation';
 
 const NormalForm = () => {
+  const methods = useForm<TSchema>({
+    resolver: zodResolver(schema),
+  });
+
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
-  } = useForm<TSchema>({
-    resolver: zodResolver(schema),
-  });
+  } = methods;
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
   };
 
+  console.log(watch('name'));
+  // console.log(watch(['name', 'email']));
+
   const double = true;
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className={cn(
-        'w-full mt-4 p-5 mx-auto border border-gray-300 shadow-sm rounded-lg',
-        {
-          'max-w-5xl': double,
-          'max-w-md': !double,
-        }
-      )}
-    >
-      {/* Basic Input Element Section */}
-      <div
-        className={cn('grid grid-cols-1 gap-5  justify-items-center', {
-          'md:grid-cols-2': double,
-        })}
+    <FormProvider {...methods}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={cn(
+          'w-full mt-4 p-5 mx-auto border border-gray-300 shadow-sm rounded-lg',
+          {
+            'max-w-5xl': double,
+            'max-w-md': !double,
+          }
+        )}
       >
-        <div className="w-full max-w-md">
-          <label htmlFor="name" className="block font-medium">
-            Name
-          </label>
-          <input type="text" id="name" {...register('name')} />
+        {/* Basic Input Element Section */}
+        <div
+          className={cn('grid grid-cols-1 gap-5  justify-items-center', {
+            'md:grid-cols-2': double,
+          })}
+        >
+          {/* Use Case of Form Provider */}
+          {/* <div className="w-full max-w-md">
+            <label htmlFor="test" className="block font-medium">
+              Test
+            </label>
+            <InputField />
+          </div>  */}
 
-          {errors.name && (
-            <span className="text-xs text-red-500">{errors.name.message}</span>
-          )}
-        </div>
+          <div className="w-full max-w-md">
+            <label htmlFor="name" className="block font-medium">
+              Name
+            </label>
+            <input type="text" id="name" {...register('name')} />
 
-        <div className="w-full max-w-md">
-          <label htmlFor="email" className="block font-medium">
-            Email
-          </label>
-          <input type="email" id="email" {...register('email')} />
+            {errors.name && (
+              <span className="text-xs text-red-500">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
 
-          {errors.email && (
-            <span className="text-xs text-red-500">{errors.email.message}</span>
-          )}
-        </div>
+          <div className="w-full max-w-md">
+            <label htmlFor="email" className="block font-medium">
+              Email
+            </label>
+            <input type="email" id="email" {...register('email')} />
 
-        <div className="w-full max-w-md">
-          <label htmlFor="password" className="block font-medium">
-            Password
-          </label>
-          <input type="password" id="password" {...register('password')} />
+            {errors.email && (
+              <span className="text-xs text-red-500">
+                {errors.email.message}
+              </span>
+            )}
+          </div>
 
-          {errors.password && (
-            <span className="text-xs text-red-500">
-              {errors.password.message}
-            </span>
-          )}
-        </div>
+          <div className="w-full max-w-md">
+            <label htmlFor="password" className="block font-medium">
+              Password
+            </label>
+            <input type="password" id="password" {...register('password')} />
 
-        {/* <div className="w-full max-w-md">
+            {errors.password && (
+              <span className="text-xs text-red-500">
+                {errors.password.message}
+              </span>
+            )}
+          </div>
+
+          {/* <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Select
           </label>
@@ -83,7 +102,7 @@ const NormalForm = () => {
           </select>
         </div> */}
 
-        {/* <div className="w-full max-w-md">
+          {/* <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Textarea
           </label>
@@ -97,25 +116,26 @@ const NormalForm = () => {
           <input type="checkbox" name="" id="" />
         </div> */}
 
-        {/* <div className="w-full max-w-md">
+          {/* <div className="w-full max-w-md">
           <label htmlFor="radio" className="block font-medium">
             Radio
           </label>
           <input type="radio" name="" id="" />
         </div> */}
-      </div>
-
-      {/* Form Submit Section */}
-      <div
-        className={cn('grid grid-cols-1 gap-5 justify-items-center my-8', {
-          'md:grid-cols-2': double,
-        })}
-      >
-        <div className="flex justify-end w-full max-w-md col-start-1 md:col-start-2">
-          <Button className="w-full md:w-fit">Submit</Button>
         </div>
-      </div>
-    </form>
+
+        {/* Form Submit Section */}
+        <div
+          className={cn('grid grid-cols-1 gap-5 justify-items-center my-8', {
+            'md:grid-cols-2': double,
+          })}
+        >
+          <div className="flex justify-end w-full max-w-md col-start-1 md:col-start-2">
+            <Button className="w-full md:w-fit">Submit</Button>
+          </div>
+        </div>
+      </form>
+    </FormProvider>
   );
 };
 
