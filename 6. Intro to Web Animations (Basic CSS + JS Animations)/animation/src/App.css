@@ -1,22 +1,35 @@
-.main {
-  border: 2px solid black;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  perspective: 1000px;
+.btn {
+  border: 2px solid tomato;
+  color: tomato;
+  padding: 10px 20px;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
-.box-1 {
-  width: 150px;
-  height: 150px;
-  background-color: aqua;
-  border-radius: 10px;
-  transition: all 1s ease-in-out;
+.btn::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: tomato;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(100px);
+  /* transform: scaleX(0); */
+  /* transform: scaleY(0); */
+  z-index: -1;
 }
 
-.box-1:hover {
-  transform: translateZ(500px);
-  /* transform: rotateX(90deg); */
+.btn:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.btn:hover::after {
+  transform: translateX(0px);
+  /* transform: scaleX(1); */
+  /* transform: scaleY(1); */
 }
