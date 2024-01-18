@@ -1,15 +1,23 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import cn from '../../utils/cn';
 import Button from '../ui/Button';
 
-const NormalForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const schema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  password: z.string().min(8, 'Too short password'),
+});
 
-  const onSubmit = (data) => {
+type TSchema = z.infer<typeof schema>;
+
+const NormalForm = () => {
+  const { register, handleSubmit } = useForm<TSchema>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: TSchema) => {
     console.log(data);
   };
 
@@ -36,24 +44,36 @@ const NormalForm = () => {
           <label htmlFor="name" className="block font-medium">
             Name
           </label>
-          <input type="text" id="name" {...register('name')} />
+          <input
+            type="text"
+            id="name"
+            {...register('name', { required: true })}
+          />
         </div>
 
         <div className="w-full max-w-md">
           <label htmlFor="email" className="block font-medium">
             Email
           </label>
-          <input type="email" id="email" {...register('email')} />
+          <input
+            type="email"
+            id="email"
+            {...register('email', { required: true })}
+          />
         </div>
 
         <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Password
           </label>
-          <input type="password" id="password" {...register('password')} />
+          <input
+            type="password"
+            id="password"
+            {...register('password', { required: true })}
+          />
         </div>
 
-        <div className="w-full max-w-md">
+        {/* <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Select
           </label>
@@ -63,9 +83,9 @@ const NormalForm = () => {
             <option value="">Option 3</option>
             <option value="">Option 4</option>
           </select>
-        </div>
+        </div> */}
 
-        <div className="w-full max-w-md">
+        {/* <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Textarea
           </label>
@@ -77,7 +97,7 @@ const NormalForm = () => {
             Checkbox
           </label>
           <input type="checkbox" name="" id="" />
-        </div>
+        </div> */}
 
         {/* <div className="w-full max-w-md">
           <label htmlFor="radio" className="block font-medium">
