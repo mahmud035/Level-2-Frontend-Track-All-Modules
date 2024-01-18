@@ -1,12 +1,25 @@
-import { FieldValues, useForm } from 'react-hook-form';
-import { Form, FormSection, FormSubmit } from '../components/Form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { Form, FormSection, FormSubmit, Input } from '../components/Form';
+
+//* Zod Schema
+const TestSchema = z.object({
+  name: z.string().min(1, { message: 'Name is required' }),
+  email: z.string().email(),
+  password: z.string().min(8, 'Password is too short'),
+});
+
+type TTestSchema = z.infer<typeof TestSchema>;
 
 const About = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<TTestSchema>({
+    resolver: zodResolver(TestSchema),
+  });
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
@@ -17,22 +30,34 @@ const About = () => {
       <h1 className="py-2 text-center">Reusable Form</h1>
 
       {/* Reusable Form */}
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        onSubmit={handleSubmit(onSubmit) as SubmitHandler<FieldValues>}
+        double={true}
+      >
         <FormSection>
-          <div className="w-full max-w-md">
-            <label htmlFor="name" className="block font-medium">
-              Name
-            </label>
-            <input type="text" id="name" {...register('name')} />
-
-            {errors.name && (
-              <span className="text-xs text-red-500">
-                {errors.name.message}
-              </span>
-            )}
-          </div>
+          <Input
+            label="Name"
+            type="text"
+            name="name"
+            register={register('name')}
+            errors={errors}
+          />
+          <Input
+            label="Email"
+            type="email"
+            name="email"
+            register={register('email')}
+            errors={errors}
+          />
+          <Input
+            label="Password"
+            type="password"
+            name="password"
+            register={register('password')}
+            errors={errors}
+          />
         </FormSection>
-        <FormSubmit></FormSubmit>
+        <FormSubmit />
       </Form>
     </div>
   );

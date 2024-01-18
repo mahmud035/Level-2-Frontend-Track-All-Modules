@@ -1,15 +1,22 @@
-import { createContext } from 'react';
+import { ReactNode, createContext } from 'react';
+import { FieldValues, SubmitHandler } from 'react-hook-form';
 import cn from '../../utils/cn';
 
 export type TFormElementContext = {
   double: boolean;
 };
 
+export type TForm = {
+  children: ReactNode;
+  onSubmit: SubmitHandler<FieldValues>;
+  double?: boolean;
+};
+
 export const FormElementContext = createContext<TFormElementContext | null>(
   null
 );
 
-export const Form = ({ children, onSubmit, double }) => {
+export const Form = ({ children, onSubmit, double = true }: TForm) => {
   return (
     <FormElementContext.Provider value={{ double }}>
       <form
@@ -22,7 +29,7 @@ export const Form = ({ children, onSubmit, double }) => {
           }
         )}
       >
-        <h1>{children}</h1>
+        {children}
       </form>
     </FormElementContext.Provider>
   );
