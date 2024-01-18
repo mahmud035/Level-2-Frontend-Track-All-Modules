@@ -1,23 +1,19 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import { FieldValues, useForm } from 'react-hook-form';
 import cn from '../../utils/cn';
 import Button from '../ui/Button';
-
-const schema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  password: z.string().min(8, 'Too short password'),
-});
-
-type TSchema = z.infer<typeof schema>;
+import { TSchema, schema } from './validation';
 
 const NormalForm = () => {
-  const { register, handleSubmit } = useForm<TSchema>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TSchema>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: TSchema) => {
+  const onSubmit = (data: FieldValues) => {
     console.log(data);
   };
 
@@ -44,33 +40,35 @@ const NormalForm = () => {
           <label htmlFor="name" className="block font-medium">
             Name
           </label>
-          <input
-            type="text"
-            id="name"
-            {...register('name', { required: true })}
-          />
+          <input type="text" id="name" {...register('name')} />
+
+          {errors.name && (
+            <span className="text-xs text-red-500">{errors.name.message}</span>
+          )}
         </div>
 
         <div className="w-full max-w-md">
           <label htmlFor="email" className="block font-medium">
             Email
           </label>
-          <input
-            type="email"
-            id="email"
-            {...register('email', { required: true })}
-          />
+          <input type="email" id="email" {...register('email')} />
+
+          {errors.email && (
+            <span className="text-xs text-red-500">{errors.email.message}</span>
+          )}
         </div>
 
         <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            {...register('password', { required: true })}
-          />
+          <input type="password" id="password" {...register('password')} />
+
+          {errors.password && (
+            <span className="text-xs text-red-500">
+              {errors.password.message}
+            </span>
+          )}
         </div>
 
         {/* <div className="w-full max-w-md">
