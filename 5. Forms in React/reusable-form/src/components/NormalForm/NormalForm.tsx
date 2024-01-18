@@ -34,36 +34,54 @@ const NormalForm = () => {
           <label htmlFor="name" className="block font-medium">
             Name
           </label>
-          <input
-            type="text"
-            id="name"
-            className="w-full border border-gray-300 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            {...register('name')}
-          />
+          <input type="text" id="name" {...register('name')} />
         </div>
 
         <div className="w-full max-w-md">
           <label htmlFor="email" className="block font-medium">
             Email
           </label>
-          <input
-            type="email"
-            id="email"
-            className="w-full border border-gray-300 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            {...register('email')}
-          />
+          <input type="email" id="email" {...register('email')} />
         </div>
 
         <div className="w-full max-w-md">
           <label htmlFor="password" className="block font-medium">
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            className="w-full border border-gray-300 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            {...register('password')}
-          />
+          <input type="password" id="password" {...register('password')} />
+        </div>
+
+        <div className="w-full max-w-md">
+          <label htmlFor="password" className="block font-medium">
+            Select
+          </label>
+          <select>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+            <option value="">Option 3</option>
+            <option value="">Option 4</option>
+          </select>
+        </div>
+
+        <div className="w-full max-w-md">
+          <label htmlFor="password" className="block font-medium">
+            Textarea
+          </label>
+          <textarea name="" id="" cols={30} rows={5}></textarea>
+        </div>
+
+        <div className="w-full max-w-md">
+          <label htmlFor="checkbox" className="block font-medium">
+            Checkbox
+          </label>
+          <input type="checkbox" name="" id="" />
+        </div>
+
+        <div className="w-full max-w-md">
+          <label htmlFor="radio" className="block font-medium">
+            Radio
+          </label>
+          <input type="radio" name="" id="" />
         </div>
       </div>
 
