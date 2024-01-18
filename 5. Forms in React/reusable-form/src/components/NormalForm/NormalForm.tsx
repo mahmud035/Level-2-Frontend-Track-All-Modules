@@ -37,20 +37,13 @@ const NormalForm = () => {
           }
         )}
       >
-        {/* Basic Input Element Section */}
+        {/* Form Input Element Section */}
         <div
           className={cn('grid grid-cols-1 gap-5  justify-items-center', {
             'md:grid-cols-2': double,
           })}
         >
-          {/* Use Case of Form Provider */}
-          {/* <div className="w-full max-w-md">
-            <label htmlFor="test" className="block font-medium">
-              Test
-            </label>
-            <InputField />
-          </div>  */}
-
+          {/* Name */}
           <div className="w-full max-w-md">
             <label htmlFor="name" className="block font-medium">
               Name
@@ -64,6 +57,7 @@ const NormalForm = () => {
             )}
           </div>
 
+          {/* Email */}
           <div className="w-full max-w-md">
             <label htmlFor="email" className="block font-medium">
               Email
@@ -77,6 +71,7 @@ const NormalForm = () => {
             )}
           </div>
 
+          {/* Password */}
           <div className="w-full max-w-md">
             <label htmlFor="password" className="block font-medium">
               Password
