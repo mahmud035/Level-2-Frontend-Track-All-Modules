@@ -1,17 +1,14 @@
 .main {
-  /* border: 2px solid black; */
+  border: 2px solid black;
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  /* overflow: hidden; */
-  /* position: relative; */
+  perspective: 1000px;
 }
 
 .box-1 {
-  /* position: absolute; */
   width: 150px;
   height: 150px;
   background-color: aqua;
@@ -19,23 +16,7 @@
   transition: all 1s ease-in-out;
 }
 
-.box-container-2 {
-  overflow: hidden;
-}
-
-.box-2 {
-  /* position: absolute; */
-  width: 150px;
-  height: 150px;
-  background-color: aquamarine;
-  border-radius: 10px;
-  transition: all 1s ease-in-out;
-}
-
 .box-1:hover {
-  transform: rotate(45deg);
-}
-.box-2:hover {
-  transform: rotate(180deg);
-  transform-origin: top;
+  transform: translateZ(500px);
+  /* transform: rotateX(90deg); */
 }
