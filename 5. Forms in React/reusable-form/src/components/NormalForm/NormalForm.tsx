@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import cn from '../../utils/cn';
+import Button from '../ui/Button';
 
 const NormalForm = () => {
   const {
@@ -17,18 +18,19 @@ const NormalForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={cn('w-full p-5 mx-auto border border-red-500', {
-        'max-w-5xl': double,
-        'max-w-md': !double,
-      })}
+      className={cn(
+        'w-full mt-4 p-5 mx-auto border border-gray-300 shadow-sm rounded-lg',
+        {
+          'max-w-5xl': double,
+          'max-w-md': !double,
+        }
+      )}
     >
+      {/* Basic Input Element Section */}
       <div
-        className={cn(
-          'grid grid-cols-1 gap-5 border border-blue-500 justify-items-center',
-          {
-            'md:grid-cols-2': double,
-          }
-        )}
+        className={cn('grid grid-cols-1 gap-5  justify-items-center', {
+          'md:grid-cols-2': double,
+        })}
       >
         <div className="w-full max-w-md">
           <label htmlFor="name" className="block font-medium">
@@ -77,15 +79,24 @@ const NormalForm = () => {
           <input type="checkbox" name="" id="" />
         </div>
 
-        <div className="w-full max-w-md">
+        {/* <div className="w-full max-w-md">
           <label htmlFor="radio" className="block font-medium">
             Radio
           </label>
           <input type="radio" name="" id="" />
-        </div>
+        </div> */}
       </div>
 
-      {/* <Button>Submit</Button> */}
+      {/* Form Submit Section */}
+      <div
+        className={cn('grid grid-cols-1 gap-5 justify-items-center my-8', {
+          'md:grid-cols-2': double,
+        })}
+      >
+        <div className="flex justify-end w-full max-w-md col-start-1 md:col-start-2">
+          <Button className="w-full md:w-fit">Submit</Button>
+        </div>
+      </div>
     </form>
   );
 };
