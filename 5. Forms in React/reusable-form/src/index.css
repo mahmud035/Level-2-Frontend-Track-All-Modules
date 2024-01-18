@@ -1,0 +1,6 @@
+@import './styles/typography.css';
+@import './styles/button.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
