@@ -1,16 +1,24 @@
 import './App.css';
 
 function App() {
+  const name = 'Programming Hero';
+
+  const nameArr = name.split('');
+
   return (
     <div className="main">
-      <div className="card">
-        <h1>Heading</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae ratione
-          libero, quasi doloribus, assumenda facere odio repellat esse debitis
-          inventore voluptates laborum. Officia et quas est tenetur debitis ab.
-          Omnis.
-        </p>
+      <div className="container">
+        {nameArr.map((item, i) => (
+          <span
+            key={i}
+            className="alphabet"
+            style={{
+              transitionDelay: `${i * 100}ms`,
+            }}
+          >
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   );

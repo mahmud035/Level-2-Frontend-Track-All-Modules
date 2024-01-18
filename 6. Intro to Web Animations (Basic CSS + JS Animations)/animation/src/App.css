@@ -1,21 +1,28 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .main {
+  background-color: #000038;
+  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
 }
 
-.card {
-  background-color: aquamarine;
-  width: 500px;
-  padding: 20px;
-  border-radius: 20px;
-  transition: all 1s ease;
-  clip-path: circle(5% at 95% 20%);
+.container {
+  font-size: 5rem;
+  font-weight: 700;
 }
 
-.card:hover {
-  clip-path: circle(70.7% at 50% 50%);
-  cursor: pointer;
+.alphabet {
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover .alphabet {
+  color: #dc02c3;
 }
