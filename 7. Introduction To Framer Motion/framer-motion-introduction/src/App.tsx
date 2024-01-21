@@ -6,7 +6,8 @@
 // import Lesson6 from './pages/Lesson6';
 // import Lesson7 from './pages/Lesson7';
 // import Lesson8 from './pages/Lesson8';
-import Lesson9 from './pages/Lesson9';
+// import Lesson9 from './pages/Lesson9';
+import Lesson10 from './pages/Lesson10';
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
       {/* <Lesson6 /> */}
       {/* <Lesson7 /> */}
       {/* <Lesson8 /> */}
-      <Lesson9 />
+      {/* <Lesson9 /> */}
+      <Lesson10 />
     </div>
   );
 };
