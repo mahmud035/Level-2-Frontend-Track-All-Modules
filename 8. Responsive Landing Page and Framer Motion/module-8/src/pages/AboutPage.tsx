@@ -1,8 +1,10 @@
+import Container from '@/components/Container';
+
 const AboutPage = () => {
   return (
-    <div>
+    <Container>
       <h1>About page</h1>
-    </div>
+    </Container>
   );
 };
 
