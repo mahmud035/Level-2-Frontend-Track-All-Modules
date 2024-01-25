@@ -1,11 +1,7 @@
-import { Button } from './components/ui/button';
+import MainLayout from './components/ui/layouts/MainLayout';
 
 const App = () => {
-  return (
-    <div>
-      <Button>Click me</Button>
-    </div>
-  );
+  return <MainLayout />;
 };
 
 export default App;
