@@ -22,17 +22,18 @@ const introChildren = {
     y: 0,
     transition: {
       duration: 0.5,
-      // type: 'spring',
-      // bounce: 0.5,
     },
   },
 };
 
 const laptop = {
-  initial: { y: 0 },
+  initial: { y: 0, rotate: 0, scale: 3 },
   animate: {
     y: 20,
+    rotate: -35,
+    scale: 1,
     transition: {
+      duration: 1,
       y: {
         duration: 2,
         repeat: Infinity,
@@ -45,53 +46,51 @@ const laptop = {
 
 const HeroSection = () => {
   return (
-    <Container className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-64px)] place-content-center ">
-      <motion.div
-        className="-ml-2"
-        variants={intro}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h1
-          className="text-5xl font-bold lg:text-8xl text-nowrap"
-          variants={introChildren}
+    <div className="overflow-hidden">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-64px)] place-content-center">
+        <motion.div
+          className="-ml-2"
+          variants={intro}
+          initial="hidden"
+          animate="visible"
         >
-          <span className="text-gray">Don't worry.</span>
-          <br />
-          <span>We'll fix it.</span>
-        </motion.h1>
-        <motion.p
-          className="mt-10 max-w-[50ch] mb-5 text-lg text-dark-gray"
-          variants={introChildren}
-        >
-          Welcome to{' '}
-          <span className="font-semibold text-primary-foreground">
-            iRepair,{' '}
-          </span>
-          your one-stop place for all kinds of
-          <span className="font-semibold text-primary-foreground">
-            {' '}
-            Macbook repairs{' '}
-          </span>
-          and diagnostics.
-        </motion.p>
-        <motion.div variants={introChildren}>
-          <Button>Book a service</Button>
+          <motion.h1
+            className="text-5xl font-bold lg:text-8xl text-nowrap"
+            variants={introChildren}
+          >
+            <span className="text-gray">Don't worry.</span>
+            <br />
+            <span>We'll fix it.</span>
+          </motion.h1>
+          <motion.p
+            className="mt-10 max-w-[50ch] mb-5 text-lg text-dark-gray"
+            variants={introChildren}
+          >
+            Welcome to{' '}
+            <span className="font-semibold text-primary-foreground">
+              iRepair,{' '}
+            </span>
+            your one-stop place for all kinds of
+            <span className="font-semibold text-primary-foreground">
+              {' '}
+              Macbook repairs{' '}
+            </span>
+            and diagnostics.
+          </motion.p>
+          <motion.div variants={introChildren}>
+            <Button>Book a service</Button>
+          </motion.div>
         </motion.div>
-      </motion.div>
-      <motion.div
-        className="w-3/4 mx-auto mt-10 lg:-mr-2 lg:w-full"
-        variants={laptop}
-        initial="initial"
-        animate="animate"
-      >
-        <img
-          src={macBook}
-          alt=""
-          className="-rotate-[35deg] object-contain h-[90%]"
-        />
-      </motion.div>
-    </Container>
+        <motion.div
+          className="w-3/4 mx-auto mt-10 lg:-mr-2 lg:w-full"
+          variants={laptop}
+          initial="initial"
+          animate="animate"
+        >
+          <img src={macBook} alt="" className="object-contain h-[90%]" />
+        </motion.div>
+      </Container>
+    </div>
   );
 };
 
