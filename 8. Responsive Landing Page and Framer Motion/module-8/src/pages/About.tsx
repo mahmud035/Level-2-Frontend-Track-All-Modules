@@ -1,11 +1,11 @@
 import Container from '@/components/Container';
 
-const HomePage = () => {
+const About = () => {
   return (
     <Container>
-      <h1>Home page</h1>
+      <h1>About page</h1>
     </Container>
   );
 };
 
-export default HomePage;
+export default About;
