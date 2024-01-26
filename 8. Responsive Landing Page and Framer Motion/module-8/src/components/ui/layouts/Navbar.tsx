@@ -5,10 +5,11 @@ import { Button } from '../button';
 const Navbar = () => {
   return (
     <motion.header
-      className="h-16"
+      className="fixed z-50 w-full h-16"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
+        delay: 1,
         duration: 1,
       }}
     >

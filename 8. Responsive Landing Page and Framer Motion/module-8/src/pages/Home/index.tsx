@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
+
       <AboutUsSection />
     </div>
   );
