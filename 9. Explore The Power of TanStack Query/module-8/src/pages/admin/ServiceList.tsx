@@ -7,6 +7,9 @@ const ServiceList = () => {
     queryFn: getServices,
   });
 
+  // console.log(data);
+  // console.log(error);
+
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -16,9 +19,17 @@ const ServiceList = () => {
 
   return (
     <div>
-      {data.data.map((item) => (
+      {/* NOTE: When using axios */}
+
+      {data?.data?.data?.map((item) => (
         <p key={item._id}>{item.name}</p>
       ))}
+
+      {/* NOTE: When using fetch */}
+
+      {/* {data?.data?.map((item) => (
+        <p key={item._id}>{item.name}</p>
+      ))} */}
     </div>
   );
 };
