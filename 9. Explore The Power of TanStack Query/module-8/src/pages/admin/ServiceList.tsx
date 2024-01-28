@@ -15,7 +15,7 @@ import { Trash2 } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 
 const ServiceList = () => {
-  //* Add New Service Data
+  //* Add New Service Data (POST)
   const [serviceName, setServiceName] = useState('');
   const queryClient = useQueryClient();
 
@@ -39,7 +39,7 @@ const ServiceList = () => {
       });
     },
   });
-  // console.log({ isPostError, isSuccess });
+  console.log({ isPostError, isSuccess });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -57,7 +57,25 @@ const ServiceList = () => {
     // console.log('done');
   };
 
-  //* Get Service Data Using Hook
+  //* Delete Service Data (DELETE)
+  const { mutateAsync: deleteMutateAsync } = useMutation({
+    mutationFn: async (id) => {
+      return await fetch(`http://localhost:5000/api/v1/services/${id}`, {
+        method: 'DELETE',
+      });
+    },
+    onSuccess: async () => {
+      queryClient.invalidateQueries({
+        queryKey: ['services'],
+      });
+    },
+  });
+
+  const handleDeleteService = (id) => {
+    deleteMutateAsync(id);
+  };
+
+  //* Get Services Data Using Hook (GET)
   const { isLoading, isError, services, error } = useGetServices();
 
   if (isLoading) {
@@ -99,7 +117,11 @@ const ServiceList = () => {
               <TableCell>{service.description}</TableCell>
               <TableCell>${service.price}</TableCell>
               <TableCell>
-                <Button variant="destructive" className="p-2">
+                <Button
+                  onClick={() => handleDeleteService(service._id)}
+                  variant="destructive"
+                  className="p-2"
+                >
                   <Trash2 />
                 </Button>
               </TableCell>
