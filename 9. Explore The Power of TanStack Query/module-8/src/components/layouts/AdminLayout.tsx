@@ -5,7 +5,7 @@ const AdminLayout = () => {
   return (
     <div className="grid grid-cols-12">
       <Sidebar />
-      <div className="col-span-10 h-[200vh]">
+      <div className="h-full col-span-10 px-5">
         <Outlet />
       </div>
     </div>
