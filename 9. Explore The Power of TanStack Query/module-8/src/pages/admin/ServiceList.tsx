@@ -1,4 +1,4 @@
-import { getServices } from '@/api/admin/service/service.api';
+import useGetServices, { TService } from '@/api/admin/service/service.hook';
 import Container from '@/components/Container';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,41 +10,16 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { useQuery } from '@tanstack/react-query';
 import { Trash2 } from 'lucide-react';
 
 const ServiceList = () => {
-  const {
-    isLoading,
-    isError,
-    data: services,
-    error,
-  } = useQuery({
-    queryKey: ['services'],
-    queryFn: getServices,
-    select: (data) => {
-      const services = data?.data?.data?.map((service) => {
-        return {
-          _id: service._id,
-          name: service.name,
-          description: service.description,
-          price: service.price,
-        };
-      });
-
-      return services;
-    },
-  });
-
-  // console.log(data);
-  // console.log(error);
-  // console.log(services);
+  const { isLoading, isError, services, error } = useGetServices();
 
   if (isLoading) {
     return <span>Loading...</span>;
   }
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return <span>Error: {error!.message}</span>;
   }
 
   return (
@@ -74,7 +49,7 @@ const ServiceList = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {services.map((service) => (
+            {services.map((service: TService) => (
               <TableRow key={service._id}>
                 <TableCell>{service.name}</TableCell>
                 <TableCell>{service.description}</TableCell>
