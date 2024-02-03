@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type TodoStateType = {
+type TTodoState = {
   todos: [];
   isLoading: boolean;
   isError: boolean;
   error: string;
 };
 
-const initialState: TodoStateType = {
+const initialState: TTodoState = {
   todos: [],
   isLoading: false,
   isError: false,
