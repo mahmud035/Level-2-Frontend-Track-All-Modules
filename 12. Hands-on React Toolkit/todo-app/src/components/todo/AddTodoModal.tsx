@@ -22,6 +22,7 @@ const AddTodoModal = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const taskDetails = {
+      _id: crypto.randomUUID(),
       title: task,
       description: description,
       isCompleted: false,

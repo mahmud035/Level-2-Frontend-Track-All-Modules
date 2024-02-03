@@ -1,14 +1,26 @@
+import { TTodo, deleteTodo } from '@/redux/features/todo/todoSlice';
+import { useAppDispatch } from '@/redux/hooks';
 import { Button } from '../ui/button';
 
-const TodoCard = () => {
+const TodoCard = ({ todo }: { todo: TTodo }) => {
+  const { _id, title, description, isCompleted } = todo || {};
+  const dispatch = useAppDispatch();
+
+  const handleDeleteTodo = (id: string) => {
+    const confirm = window.confirm('Are you sure you want to DELETE the task?');
+    if (confirm) {
+      dispatch(deleteTodo(id));
+    }
+  };
+
   return (
     <div className="bg-white rounded-md flex justify-between items-center p-3 border">
-      <input type="checkbox" name="" id="" />
-      <p className="font-semibold">Todo Title</p>
+      <input type="checkbox" checked={isCompleted} />
+      <p className="font-semibold">{title}</p>
       {/* <p className="font-medium">Time</p> */}
-      <p className="font-medium">Description</p>
+      <p className="font-medium">{description}</p>
       <div className="space-x-5">
-        <Button className="bg-red-500">
+        <Button onClick={() => handleDeleteTodo(_id)} className="bg-red-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
