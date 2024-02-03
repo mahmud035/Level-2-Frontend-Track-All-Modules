@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export type TodoStateType = {
-  todo: [];
+type TodoStateType = {
+  todos: [];
+  isLoading: boolean;
+  isError: boolean;
+  error: string;
 };
 
 const initialState: TodoStateType = {
-  todo: [],
+  todos: [],
+  isLoading: false,
+  isError: false,
+  error: '',
 };
 
 const todoSlice = createSlice({
