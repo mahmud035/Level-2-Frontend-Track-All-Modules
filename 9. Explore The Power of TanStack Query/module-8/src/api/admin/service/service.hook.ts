@@ -18,7 +18,7 @@ const useGetServices = () => {
     queryKey: ['services'],
     queryFn: getServices,
 
-    // For transforming data
+    //* For transforming data
     select: (data) => {
       const services = data?.data?.data?.map((service: TService) => {
         return {

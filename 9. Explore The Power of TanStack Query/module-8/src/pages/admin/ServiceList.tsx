@@ -51,10 +51,8 @@ const ServiceList = () => {
       price: 130.0,
     };
 
-    // console.log(serviceData);
+    // call the mutate function
     await mutateAsync(serviceData);
-
-    // console.log('done');
   };
 
   //* Delete Service Data (DELETE)
