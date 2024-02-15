@@ -20,7 +20,7 @@ const ServiceList = () => {
   const queryClient = useQueryClient();
 
   const {
-    mutateAsync,
+    mutateAsync: postMutateAsync,
     isError: isPostError,
     isSuccess,
   } = useMutation({
@@ -51,8 +51,7 @@ const ServiceList = () => {
       price: 130.0,
     };
 
-    // call the mutate function
-    await mutateAsync(serviceData);
+    await postMutateAsync(serviceData); // call the mutate function
   };
 
   //* Delete Service Data (DELETE)
@@ -70,7 +69,7 @@ const ServiceList = () => {
   });
 
   const handleDeleteService = (id) => {
-    deleteMutateAsync(id);
+    deleteMutateAsync(id); // call the mutate function
   };
 
   //* Get Services Data Using Hook (GET)

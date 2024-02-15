@@ -5,6 +5,7 @@ import { FormEvent, useState } from 'react';
 const AddService = () => {
   const [serviceName, setServiceName] = useState('');
 
+  //* Add New Service Data (POST)
   const { mutateAsync, isError, isSuccess } = useMutation({
     mutationFn: async (data) => {
       return await fetch('http://localhost:5000/api/v1/services', {
@@ -29,10 +30,7 @@ const AddService = () => {
       price: 130.0,
     };
 
-    // console.log(serviceData);
-    await mutateAsync(serviceData);
-
-    console.log('done');
+    await mutateAsync(serviceData); // call the mutate function
   };
 
   return (
