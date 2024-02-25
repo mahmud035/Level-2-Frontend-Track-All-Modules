@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const initial = { rotate: 0 };
 const animate = { rotate: 360 };
-const transition = { type: 'spring', duration: 2 };
+const transition = { type: 'spring', duration: 3 };
 
 const Lesson1 = () => {
   return (
