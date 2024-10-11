@@ -29,7 +29,7 @@ const Lesson4 = () => {
   return (
     <motion.div
       ref={parentRef}
-      className="flex items-center justify-center border-2 border-red-500 rounded-lg size-3/6 "
+      className="flex items-center justify-center border-2 border-red-500 rounded-lg size-3/6"
     >
       <motion.div
         className="flex flex-wrap items-center justify-center gap-4 p-5 bg-indigo-500 rounded-lg size-64"

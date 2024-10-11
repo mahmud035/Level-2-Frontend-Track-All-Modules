@@ -1,4 +1,4 @@
-import MainLayout from './components/ui/layouts/MainLayout';
+import MainLayout from './components/layouts/MainLayout';
 
 const App = () => {
   return <MainLayout />;

@@ -17,6 +17,8 @@ const UseEffectFetchCleanupExample = () => {
   );
 };
 
+// NOTE: Article Link: https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect
+
 //* Todo Component
 const Todo = () => {
   const controller = new AbortController();

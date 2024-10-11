@@ -11,21 +11,20 @@ const Counter = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="h-screen w-full flex justify-center items-center text-center">
-      <div className="border border-purple-300 rounded-md bg-slate-50 p-10">
-        <span className="block mb-4 text-emerald-500 font-medium text-2xl">
+    <div className="flex items-center justify-center w-full h-screen text-center">
+      <div className="p-10 border border-purple-300 rounded-md bg-slate-50">
+        <span className="block mb-4 text-2xl font-medium text-emerald-500">
           {count}
         </span>
-
         <button
           onClick={() => dispatch(increment())}
-          className="bg-cyan-500 px-3 py-2 rounded text-white font-medium mr-3"
+          className="px-3 py-2 mr-3 font-medium text-white rounded bg-cyan-500"
         >
           Increment
         </button>
         <button
           onClick={() => dispatch(decrement())}
-          className="bg-orange-500 px-3 py-2 rounded text-white font-medium mr-3"
+          className="px-3 py-2 mr-3 font-medium text-white bg-orange-500 rounded"
         >
           Decrement
         </button>
@@ -33,13 +32,13 @@ const Counter = () => {
         {/* Payload */}
         <button
           onClick={() => dispatch(incrementByAmount(5))}
-          className="bg-cyan-500 px-3 py-2 rounded text-white font-medium mr-3"
+          className="px-3 py-2 mr-3 font-medium text-white rounded bg-cyan-500"
         >
           IncrementBy 5
         </button>
         <button
           onClick={() => dispatch(decrementByAmount({ value: 5 }))}
-          className="bg-orange-500 px-3 py-2 rounded text-white font-medium mr-3"
+          className="px-3 py-2 mr-3 font-medium text-white bg-orange-500 rounded"
         >
           DecrementBy 5
         </button>

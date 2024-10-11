@@ -13,7 +13,7 @@ function App() {
             key={i}
             className="alphabet"
             style={{
-              transitionDelay: `${i * 100}ms`,
+              transitionDelay: `${i * 100}ms`, // stagger animation
             }}
           >
             {item}

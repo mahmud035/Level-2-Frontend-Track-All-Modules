@@ -32,6 +32,7 @@ const run = async () => {
     //* GET
     app.get('/tasks', async (req, res) => {
       let query = {};
+      // console.log(req.query);
       if (req.query.priority) {
         query.priority = req.query.priority;
       }
@@ -40,7 +41,7 @@ const run = async () => {
       res.send({ status: true, data: tasks });
     });
 
-    app.get('/task/:id', async (req, res) => {
+    app.get('/tasks/:id', async (req, res) => {
       const id = req.params.id;
       const result = await taskCollection.findOne({ _id: ObjectId(id) });
       // console.log(result);
@@ -48,14 +49,14 @@ const run = async () => {
     });
 
     //* POST
-    app.post('/task', async (req, res) => {
+    app.post('/tasks', async (req, res) => {
       const task = req.body;
       const result = await taskCollection.insertOne(task);
       res.send(result);
     });
 
     //* DELETE
-    app.delete('/task/:id', async (req, res) => {
+    app.delete('/tasks/:id', async (req, res) => {
       const id = req.params.id;
       const result = await taskCollection.deleteOne({ _id: ObjectId(id) });
       // console.log(result);
@@ -63,8 +64,8 @@ const run = async () => {
     });
 
     //* PUT/PATCH
-    //* status update
-    app.put('/task/:id', async (req, res) => {
+    // status update
+    app.put('/tasks/:id', async (req, res) => {
       const id = req.params.id;
       console.log(id);
       const task = req.body;

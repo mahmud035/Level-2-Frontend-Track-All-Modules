@@ -11,7 +11,6 @@ const Counter = () => {
   const dispatch = useAppDispatch();
 
   const boxArray = new Array(boxCount).fill(boxCount);
-  console.log(boxArray);
   let index = 0;
 
   return (
